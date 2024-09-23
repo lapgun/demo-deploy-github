@@ -22,5 +22,4 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: "/demo-deploy-github/",
 })
