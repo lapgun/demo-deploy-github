@@ -1,0 +1,118 @@
+{
+  "type": "List",
+  "contents": [
+    {
+      "type": "BlockSearch",
+      "contents": [
+        {
+          "type": "Title",
+          "text": "検索条件入力"
+        },
+        {
+          "type": "BlockSearchContent",
+          "contents": {
+            "left": [
+              {
+                "type": "DatePicker",
+                "text": "適用日"
+              },
+              {
+                "type": "SearchInput",
+                "text": "データ種別",
+                "className": "w-[150px]",
+                "subText": "固定費"
+              },
+              {
+                "type": "DoubleInput",
+                "text": "項目コード",
+                "className": "w-[100px]"
+              },
+              {
+                "type": "SingleInputCheckbox",
+                "text": "項目名",
+                "options": [
+                  {
+                    "title": "前方一致",
+                    "value": "1"
+                  },
+                  {
+                    "title": "後方一致",
+                    "value": "2"
+                  }
+                ],
+                "className": "w-[250px]"
+              }
+            ],
+            "right": [
+              {
+                "type": "ClassifyCheckbox",
+                "text": "承認区分",
+                "options": [
+                  {
+                    "title": "承認",
+                    "value": "1"
+                  },
+                  {
+                    "title": "未承認",
+                    "value": "2"
+                  }
+                ]
+              },
+              {
+                "type": "ClassifyCheckbox",
+                "text": "削除区分",
+                "options": [
+                  {
+                    "title": "削除",
+                    "value": "1"
+                  }
+                ]
+              },
+              {
+                "type": "ChooseFile",
+                "text": "ファイル選択",
+                "textBtnChoose": "ファイル選択",
+                "textBtnLoad": "ファイル取込"
+              }
+            ]
+          }
+        },
+        {
+          "type": "GroupButton",
+          "contents": {
+            "left": [
+              {
+                "type": "Button",
+                "text": "クリア",
+                "className": "bg-white text-sky-700 hover:bg-wite border border-sky-700"
+              }
+            ],
+            "right": [
+              {
+                "type": "Button",
+                "text": "検索",
+                "className": "bg-white text-sky-700 hover:bg-wite border border-sky-700 mr-2"
+              },
+              {
+                "type": "Button",
+                "text": "新規登録"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "BlockTable",
+      "contents": [
+        {
+          "type": "Title",
+          "text": "検索結果"
+        },
+        {
+          "type": "BlockTableContent"
+        }
+      ]
+    }
+  ]
+}

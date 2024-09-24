@@ -127,6 +127,149 @@ const data = [
     effectiveDate: '2001/01/01',
     updateDate: '2001/01/01',
   },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
+  {
+    dataType: 'C：固定費',
+    itemCode: '000001',
+    itemNameKana: 'ｷｷｶｼﾀﾞｼﾘｮｳ',
+    itemName: '機器貸出料',
+    insurancePoints: '99999',
+    standardPrice: '10,000.0',
+    feeClassification: '05：その他(検査外)',
+    effectiveDate: '2001/01/01',
+    updateDate: '2001/01/01',
+  },
 ]
 </script>
 
@@ -152,6 +295,7 @@ const data = [
           </TableHead>
         </TableRow>
       </TableHeader>
+      <!-- <ScrollArea> -->
       <TableBody class="border border-black">
         <template v-if="data.length">
           <TableRow v-for="(item, index) in data" :key="index">
@@ -188,6 +332,7 @@ const data = [
           <div>データなし</div>
         </TableEmpty>
       </TableBody>
+      <!-- </ScrollArea> -->
     </Table>
   </div>
   <div class="content-footer text-center pt-10">
