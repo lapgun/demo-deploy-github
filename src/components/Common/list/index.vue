@@ -23,9 +23,11 @@ const onOffDialog = (isOpen: boolean) => {
   <component
     v-for="(item, index) in contents"
     :is="item.type"
-    :contents="item.contents"
     :key="index"
     :open="open"
     @onOffDialog="onOffDialog"
+    v-bind="{
+      ...item,
+    }"
   />
 </template>

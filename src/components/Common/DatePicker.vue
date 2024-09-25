@@ -13,7 +13,7 @@ defineProps({
     type: String,
     required: true,
   },
-  isRequired: {
+  required: {
     type: Boolean,
     default: false,
   },
@@ -27,28 +27,34 @@ const value = ref<DateValue>()
 </script>
 
 <template>
-  <div class="flex mb-4">
-    <div class="mr-4 content-center w-[150px] bg-indigo-100 pl-1">
+  <div class="flex">
+    <div class="mr-4 content-center w-[150px] bg-indigo-100 pl-1 h-8">
       {{ text }}
-      <span class="text-red-500" v-if="isRequired">*</span>
+      <span class="text-red-500" v-if="required">*</span>
     </div>
-    <div class="text-lg font-bold rotate-[0.03deg]">
-      <Popover>
-        <PopoverTrigger as-child>
-          <Button
-            variant="outline"
-            :class="
-              cn('w-[180px] justify-start text-left font-normal', !value && 'text-muted-foreground')
-            "
-          >
-            <CalendarIcon class="mr-2 h-4 w-4" />
-            {{ value ? df.format(value.toDate(getLocalTimeZone())) : '2023/12/01' }}
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent class="w-auto p-0">
-          <Calendar v-model="value" initial-focus />
-        </PopoverContent>
-      </Popover>
+    <div class="flex flex-col">
+      <div class="text-lg font-bold rotate-[0.03deg]">
+        <Popover>
+          <PopoverTrigger as-child>
+            <Button
+              variant="outline"
+              :class="
+                cn(
+                  'w-[180px] justify-start text-left font-normal',
+                  !value && 'text-muted-foreground'
+                )
+              "
+            >
+              <CalendarIcon class="mr-2 h-4 w-4" />
+              {{ value ? df.format(value.toDate(getLocalTimeZone())) : '2023/12/01' }}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent class="w-auto p-0">
+            <Calendar v-model="value" initial-focus />
+          </PopoverContent>
+        </Popover>
+      </div>
+      <ErrorMessage />
     </div>
   </div>
 </template>

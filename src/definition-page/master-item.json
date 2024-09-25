@@ -2,7 +2,7 @@
   "type": "List",
   "contents": [
     {
-      "type": "BlockSearch",
+      "type": "Block",
       "contents": [
         {
           "type": "Title",

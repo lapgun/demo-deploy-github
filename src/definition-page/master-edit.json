@@ -2,7 +2,7 @@
   "type": "List",
   "contents": [
     {
-      "type": "BlockSearch",
+      "type": "Block",
       "contents": [
         {
           "type": "Title",
@@ -12,18 +12,20 @@
         {
           "type": "DatePicker",
           "text": "適用開始日",
+          "class": "mb-1",
           "required": true
         },
         {
           "type": "SearchInput",
           "text": "固定費",
+          "class": "mb-1",
           "className": "w-[150px]",
           "subText": "固定費",
           "required": true
         },
         {
-          "type": "BlockSearch",
-          "className": "flex flex-row justify-between justify-items-center",
+          "type": "Block",
+          "class": "flex flex-row justify-between justify-items-center mb-1",
           "contents": [
             {
               "type": "SingleInput",
@@ -34,7 +36,7 @@
             {
               "type": "SingleButton",
               "text": "削除",
-              "className": "bg-white text-sky-700 hover:bg-wite border border-sky-700",
+              "class": "bg-white text-sky-700 hover:bg-wite border border-sky-700",
               "required": true
             }
           ]
@@ -42,7 +44,7 @@
       ]
     },
     {
-      "type": "BlockSearch",
+      "type": "Block",
       "className": "py-4",
       "contents": [
         {
@@ -52,19 +54,21 @@
         {
           "type": "SingleInput",
           "text": "項目名（カナ）",
+          "class": "mb-1",
           "className": "w-[600px]",
           "required": true
         },
         {
           "type": "SingleInput",
           "text": "項目名",
+          "class": "mb-1",
           "className": "w-[600px]",
           "required": true
         }
       ]
     },
     {
-      "type": "BlockSearch",
+      "type": "Block",
       "py-4py-4py-4": "py-4",
       "contents": [
         {
@@ -74,17 +78,20 @@
         {
           "type": "SingleInput",
           "text": "保険点数",
+          "class": "mb-1",
           "className": "w-[150px]"
         },
         {
           "type": "SingleInput",
           "text": "標準単価",
-          "className": "w-[150px]",             
+          "class": "mb-1",
+          "className": "w-[150px]",
           "required": true
         },
         {
           "type": "SearchInput",
           "text": "料金区分",
+          "class": "mb-1",
           "className": "w-[150px]",
           "subText": "その他（検査外）",
           "required": true
@@ -92,6 +99,7 @@
         {
           "type": "ClassifyCheckbox",
           "text": "承認区分",
+          "class": "mb-5",
           "options": [
             {
               "title": "承認",
@@ -102,6 +110,7 @@
         {
           "type": "ClassifyCheckbox",
           "text": "削除区分",
+          "class": "mb-5",
           "options": [
             {
               "title": "削除",

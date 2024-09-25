@@ -16,6 +16,8 @@ import DatePicker from './components/Common/DatePicker.vue'
 import DoubleInput from './components/Common/DoubleInput.vue'
 import SearchInput from './components/Common/SearchInput.vue'
 import SingleInput from './components/Common/SingleInput.vue'
+import SingleButton from './components/Common/SingleButton.vue'
+import ErrorMessage from './components/Common/ErrorMessage.vue'
 import Title from './components/Common/Title.vue'
 import ClassifyCheckbox from './components/Common/ClassifyCheckbox.vue'
 import SingleInputCheckbox from './components/Common/SingleInputCheckbox.vue'
@@ -26,7 +28,7 @@ import Table from './components/Common/Table.vue'
 import Pagination from './components/Common/Pagination.vue'
 import Selection from './components/Common/Selection.vue'
 import List from './components/Common/list/index.vue'
-import BlockSearch from './components/Common/list/BlockSearch.vue'
+import Block from './components/Common/list/Block.vue'
 import BlockTable from './components/Common/list/BlockTable.vue'
 import BlockTableContent from './components/Common/list/BlockTableContent.vue'
 import BlockSearchContent from './components/Common/list/BlockSearchContent.vue'
@@ -54,6 +56,7 @@ app
   .component('DoubleInput', DoubleInput)
   .component('SearchInput', SearchInput)
   .component('SingleInput', SingleInput)
+  .component('SingleButton', SingleButton)
   .component('Title', Title)
   .component('ClassifyCheckbox', ClassifyCheckbox)
   .component('SingleInputCheckbox', SingleInputCheckbox)
@@ -64,11 +67,12 @@ app
   .component('Pagination', Pagination)
   .component('Selection', Selection)
   .component('List', List)
-  .component('BlockSearch', BlockSearch)
+  .component('Block', Block)
   .component('BlockTable', BlockTable)
   .component('BlockTableContent', BlockTableContent)
   .component('BlockSearchContent', BlockSearchContent)
   .component('GroupButton', GroupButton)
   .component('Dialog', Dialog)
+  .component('ErrorMessage', ErrorMessage)
 
 app.mount('#app')

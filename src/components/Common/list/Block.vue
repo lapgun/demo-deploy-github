@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlockType } from 'types/common'
+import type { BlockType } from '../../../types/common'
 import type { PropType } from 'vue'
 
 defineProps({
@@ -19,7 +19,7 @@ const onOffDialog = (isOpen: boolean) => {
 }
 </script>
 <template>
-  <div class="block-search">
+  <div class="block">
     <component
       v-for="(item, index) in contents"
       :is="item.type"
