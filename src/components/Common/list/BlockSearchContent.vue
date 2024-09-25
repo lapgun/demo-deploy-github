@@ -7,7 +7,17 @@ defineProps({
     type: Object as PropType<BlockContentType>,
     required: true,
   },
+  open: {
+    type: Boolean,
+    default: false,
+  },
 })
+
+const emits = defineEmits(['onOffDialog'])
+
+const onOffDialog = (isOpen: boolean) => {
+  emits('onOffDialog', isOpen)
+}
 </script>
 <template>
   <div class="content grid grid-flow-row-dense grid-cols-12">
@@ -18,7 +28,9 @@ defineProps({
         :key="indexLeft"
         v-bind="{
           ...itemLeft,
+          open,
         }"
+        @onOffDialog="onOffDialog"
       />
     </div>
     <div class="content-right col-span-6">

@@ -7,7 +7,17 @@ defineProps({
     type: Object as PropType<ListType[]>,
     required: true,
   },
+  open: {
+    type: Boolean,
+    default: false,
+  },
 })
+
+const emits = defineEmits(['onOffDialog'])
+
+const onOffDialog = (isOpen: boolean) => {
+  emits('onOffDialog', isOpen)
+}
 </script>
 <template>
   <component
@@ -15,5 +25,7 @@ defineProps({
     :is="item.type"
     :contents="item.contents"
     :key="index"
+    :open="open"
+    @onOffDialog="onOffDialog"
   />
 </template>

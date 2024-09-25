@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { cn } from '../../lib/utils'
 import { ref } from 'vue'
 
 defineProps({
@@ -54,7 +55,7 @@ const onFileChanged = ($event: Event) => {
     <div class="text-sm rotate-[0.03deg]">
       <div class="grid grid-flow-row-dense grid-cols-12 space-x-2">
         <div class="col-span-9 flex">
-          <Input :class="className" type="file" id="file" @change="onFileChanged" />
+          <Input :class="cn('hidden', className)" type="file" id="file" @change="onFileChanged" />
           <Button
             @click="onChooseFile"
             class="bg-white text-sky-700 hover:bg-wite border border-sky-700"
@@ -75,8 +76,3 @@ const onFileChanged = ($event: Event) => {
     </div>
   </div>
 </template>
-<style scoped>
-input[type='file'] {
-  display: none;
-}
-</style>

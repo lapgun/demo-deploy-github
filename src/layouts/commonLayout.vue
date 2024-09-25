@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useLoadingStore } from '../stores/loading'
+const { loading, $loading } = useLoadingStore()
+onMounted(() => {
+  const submit = () => {
+    const loader = $loading.show()
+    setTimeout(() => {
+      loader.hide()
+    }, 5000)
+  }
+  submit()
+})
 </script>
 
 <template>
@@ -12,5 +24,6 @@
         </div>
       </section>
     </div>
+    <loading v-model:active="loading"></loading>
   </div>
 </template>

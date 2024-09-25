@@ -18,10 +18,16 @@ defineProps({
     type: String,
     default: '',
   },
+  open: {
+    type: Boolean,
+    default: false,
+  },
 })
 
+const emits = defineEmits(['onOffDialog'])
+
 const onSearch = () => {
-  // TODO:
+  emits('onOffDialog', true)
 }
 </script>
 <template>
@@ -38,4 +44,5 @@ const onSearch = () => {
       <div class="content-center text-large">{{ subText }}</div>
     </div>
   </div>
+  <Dialog :open="true" />
 </template>

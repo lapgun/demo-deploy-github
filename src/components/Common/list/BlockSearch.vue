@@ -7,7 +7,16 @@ defineProps({
     type: Object as PropType<BlockType[]>,
     required: true,
   },
+  open: {
+    type: Boolean,
+    default: false,
+  },
 })
+const emits = defineEmits(['onOffDialog'])
+
+const onOffDialog = (isOpen: boolean) => {
+  emits('onOffDialog', isOpen)
+}
 </script>
 <template>
   <div class="block-search">
@@ -17,7 +26,9 @@ defineProps({
       :key="index"
       v-bind="{
         ...item,
+        open,
       }"
+      @onOffDialog="onOffDialog"
     />
   </div>
 </template>

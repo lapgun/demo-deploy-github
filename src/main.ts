@@ -2,6 +2,8 @@ import './assets/index.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { LoadingPlugin } from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
 
 import App from './App.vue'
 import router from './router'
@@ -29,11 +31,20 @@ import BlockTable from './components/Common/list/BlockTable.vue'
 import BlockTableContent from './components/Common/list/BlockTableContent.vue'
 import BlockSearchContent from './components/Common/list/BlockSearchContent.vue'
 import GroupButton from './components/Common/list/GroupButton.vue'
+import Dialog from './components/Common/Dialog.vue'
 
 const app = createApp(App)
 
+// Use Router
 app.use(router)
+
+// Use Store
 app.use(createPinia())
+
+// Use Loading
+app.use(LoadingPlugin)
+
+// Use Components global
 app
   .component('CommonLayout', CommonLayout)
   .component('Input', Input)
@@ -58,5 +69,6 @@ app
   .component('BlockTableContent', BlockTableContent)
   .component('BlockSearchContent', BlockSearchContent)
   .component('GroupButton', GroupButton)
+  .component('Dialog', Dialog)
 
 app.mount('#app')

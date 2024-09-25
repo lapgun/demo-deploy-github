@@ -20,11 +20,13 @@
                 "type": "SearchInput",
                 "text": "データ種別",
                 "className": "w-[150px]",
+                "keyName": "abc",
                 "subText": "固定費"
               },
               {
                 "type": "DoubleInput",
                 "text": "項目コード",
+                "keyName": "abc",
                 "className": "w-[100px]"
               },
               {
