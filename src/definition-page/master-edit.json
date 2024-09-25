@@ -1,0 +1,115 @@
+{
+  "type": "List",
+  "contents": [
+    {
+      "type": "BlockSearch",
+      "contents": [
+        {
+          "type": "Title",
+          "text": "は必須",
+          "required": true
+        },
+        {
+          "type": "DatePicker",
+          "text": "適用開始日",
+          "required": true
+        },
+        {
+          "type": "SearchInput",
+          "text": "固定費",
+          "className": "w-[150px]",
+          "subText": "固定費",
+          "required": true
+        },
+        {
+          "type": "BlockSearch",
+          "className": "flex flex-row justify-between justify-items-center",
+          "contents": [
+            {
+              "type": "SingleInput",
+              "text": "項目コード",
+              "className": "w-[150px]",
+              "required": true
+            },
+            {
+              "type": "SingleButton",
+              "text": "削除",
+              "className": "bg-white text-sky-700 hover:bg-wite border border-sky-700",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "BlockSearch",
+      "className": "py-4",
+      "contents": [
+        {
+          "type": "Title",
+          "text": "名称情報"
+        },
+        {
+          "type": "SingleInput",
+          "text": "項目名（カナ）",
+          "className": "w-[600px]",
+          "required": true
+        },
+        {
+          "type": "SingleInput",
+          "text": "項目名",
+          "className": "w-[600px]",
+          "required": true
+        }
+      ]
+    },
+    {
+      "type": "BlockSearch",
+      "py-4py-4py-4": "py-4",
+      "contents": [
+        {
+          "type": "Title",
+          "text": "項目情報"
+        },
+        {
+          "type": "SingleInput",
+          "text": "保険点数",
+          "className": "w-[150px]"
+        },
+        {
+          "type": "SingleInput",
+          "text": "標準単価",
+          "className": "w-[150px]",             
+          "required": true
+        },
+        {
+          "type": "SearchInput",
+          "text": "料金区分",
+          "className": "w-[150px]",
+          "subText": "その他（検査外）",
+          "required": true
+        },
+        {
+          "type": "ClassifyCheckbox",
+          "text": "承認区分",
+          "options": [
+            {
+              "title": "承認",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "type": "ClassifyCheckbox",
+          "text": "削除区分",
+          "options": [
+            {
+              "title": "削除",
+              "value": "1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
