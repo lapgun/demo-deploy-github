@@ -19,7 +19,7 @@ import SingleInput from './components/Common/SingleInput.vue'
 import SingleButton from './components/Common/SingleButton.vue'
 import ErrorMessage from './components/Common/ErrorMessage.vue'
 import Title from './components/Common/Title.vue'
-import ClassifyCheckbox from './components/Common/ClassifyCheckbox.vue'
+import GroupCheckbox from './components/Common/GroupCheckbox.vue'
 import SingleInputCheckbox from './components/Common/SingleInputCheckbox.vue'
 import Label from './components/ui/label/Label.vue'
 import ClassifyRadio from './components/Common/ClassifyRadio.vue'
@@ -58,7 +58,7 @@ app
   .component('SingleInput', SingleInput)
   .component('SingleButton', SingleButton)
   .component('Title', Title)
-  .component('ClassifyCheckbox', ClassifyCheckbox)
+  .component('GroupCheckbox', GroupCheckbox)
   .component('SingleInputCheckbox', SingleInputCheckbox)
   .component('Label', Label)
   .component('ClassifyRadio', ClassifyRadio)

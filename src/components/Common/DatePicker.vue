@@ -1,29 +1,43 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date'
-
+import { inject, computed } from 'vue'
+import { DateFormatter, getLocalTimeZone, CalendarDate } from '@internationalized/date'
 import { Calendar as CalendarIcon } from 'lucide-vue-next'
-import { Calendar } from '../../components/ui/calendar'
-import { Button } from '../../components/ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover'
-import { cn } from '../../lib/utils'
+import { Calendar } from '@/components/ui/calendar'
+import { Button } from '@/components/ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { cn } from '@/lib/utils'
+import { StateType } from '@/types/dataTypes'
+import { useInjectedModel } from '@/hooks'
 
-defineProps({
-  text: {
-    type: String,
-    required: true,
-  },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-})
+interface Props {
+  text: string
+  required?: boolean
+  className?: string
+  subText?: string
+  open?: boolean
+  keyName: string
+  isStore?: boolean
+}
 
-const df = new DateFormatter('en-US', {
-  dateStyle: 'long',
-})
+const props = defineProps<Props>()
 
-const value = ref<DateValue>()
+const injectStates = inject<StateType<any>>('state') || {}
+
+const dateFormatter = new DateFormatter('en-GB')
+
+const modelValue = useInjectedModel<string>(injectStates, props.keyName, props.isStore)
+
+const parseDateString = (dateString: string): CalendarDate | undefined => {
+  const [day, month, year] = dateString.split('/').map(Number)
+  return day && month && year ? new CalendarDate(year, month, day) : undefined
+}
+
+const formatCalendarDate = (date: CalendarDate | undefined): string =>
+  date ? dateFormatter.format(date.toDate(getLocalTimeZone())) : ''
+
+const onChange = (value) => {
+  modelValue.value = formatCalendarDate(value)
+}
 </script>
 
 <template>
@@ -41,16 +55,20 @@ const value = ref<DateValue>()
               :class="
                 cn(
                   'w-[180px] justify-start text-left font-normal',
-                  !value && 'text-muted-foreground'
+                  !modelValue && 'text-muted-foreground'
                 )
               "
             >
               <CalendarIcon class="mr-2 h-4 w-4" />
-              {{ value ? df.format(value.toDate(getLocalTimeZone())) : '2023/12/01' }}
+              {{ modelValue || '01/12/2023' }}
             </Button>
           </PopoverTrigger>
           <PopoverContent class="w-auto p-0">
-            <Calendar v-model="value" initial-focus />
+            <Calendar
+              @update:model-value="onChange"
+              :modelValue="parseDateString(modelValue)"
+              initial-focus
+            />
           </PopoverContent>
         </Popover>
       </div>

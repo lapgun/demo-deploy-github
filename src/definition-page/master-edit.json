@@ -13,7 +13,52 @@
           "type": "DatePicker",
           "text": "適用開始日",
           "class": "mb-1",
-          "required": true
+          "required": true,
+          "keyName": "dateTime"
+        },
+        {
+          "type": "DoubleInput",
+          "text": "DoubleInput",
+          "class": "mb-1",
+          "required": true,
+          "keyName": "oneTwo",
+          "isStore": true
+        },
+        {
+          "type": "GroupCheckbox",
+          "text": "checkbox",
+          "class": "mb-1",
+          "required": true,
+          "keyName": "passCheck",
+          "isStore": true,
+          "options": [
+            {
+              "title": "1a",
+              "value": 1
+            },
+            {
+              "title": "2a",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "ClassifyRadio",
+          "text": "radio",
+          "class": "mb-1",
+          "required": true,
+          "keyName": "radiotest",
+          "isStore": true,
+          "options": [
+            {
+              "title": "1a",
+              "value": 1
+            },
+            {
+              "title": "2a",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "SearchInput",
@@ -21,7 +66,9 @@
           "class": "mb-1",
           "className": "w-[150px]",
           "subText": "固定費",
-          "required": true
+          "required": true,
+          "keyName": "email",
+          "isStore": true
         },
         {
           "type": "Block",

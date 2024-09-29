@@ -1,12 +1,25 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { reactive } from 'vue'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(10)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+/**
+ * 系统配置定义
+ */
+const useConfigStore = defineStore('config', () => {
+  /**
+   * 变量
+   */
+  // 系统界面配置
+  const config = reactive({
+    dateTime: '11/11/2024', // 菜单栏宽度
+    email: '123123', // 底部菜单栏高度
+    passCheck: [1],
+    radiotest: 1,
+    oneTwo: ['one', 'two'],
+  })
+
+  return {
+    config,
   }
-
-  return { count, doubleCount, increment }
 })
+
+export default useConfigStore

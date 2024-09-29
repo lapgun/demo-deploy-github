@@ -1,33 +1,32 @@
 <script setup lang="ts">
+import { inject } from 'vue'
 import { Search } from 'lucide-vue-next'
+import { useInjectedModel } from '@/hooks'
+import { StateType } from '@/types/dataTypes'
 
-defineProps({
-  text: {
-    type: String,
-    required: true,
-  },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-  className: {
-    type: String,
-    default: '',
-  },
-  subText: {
-    type: String,
-    default: '',
-  },
-  open: {
-    type: Boolean,
-    default: false,
-  },
-})
+interface Props {
+  text: string
+  required?: boolean
+  className?: string
+  subText?: string
+  open?: boolean
+  keyName: string
+  onSearch: string
+  isStore?: boolean
+}
 
-const emits = defineEmits(['onOffDialog'])
+const props = defineProps<Props>()
+
+const injectStates = inject<StateType<string>>('state')
+
+const injectActions = inject<Function>('action') || {}
+
+const modelValue = useInjectedModel<string>(injectStates, props.keyName, props.isStore)
+
+const actionSearch = injectActions[props.onSearch] || (() => {})
 
 const onSearch = () => {
-  emits('onOffDialog', true)
+  actionSearch()
 }
 </script>
 <template>
@@ -38,7 +37,7 @@ const onSearch = () => {
     </div>
     <div class="flex flex-col">
       <div class="rotate-[0.03deg] flex">
-        <Input :class="className" />
+        <Input :class="className" v-model="modelValue" />
         <div class="start-0 inset-y-0 flex items-center justify-center px-2 bg-indigo-100 mx-1">
           <Search class="size-4 text-muted-foreground" @click="onSearch" />
         </div>
@@ -46,6 +45,5 @@ const onSearch = () => {
       </div>
       <ErrorMessage />
     </div>
-    <Dialog :open="true" />
   </div>
 </template>
