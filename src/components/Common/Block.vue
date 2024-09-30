@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BlockType } from '../../../types/common'
+import type { BlockType } from '../../types/common'
 import type { PropType } from 'vue'
 
 defineProps({

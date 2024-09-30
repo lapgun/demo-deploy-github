@@ -1,19 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import masterItemJson from '../../definition-page/master-item.json'
+import masterItemJson from '@/definition-page/master-item.json'
+import { provide } from 'vue'
 
-const open = ref(false)
+import useConfigStore from '@/stores/masterItem'
 
-const onOffDialog = (isOpen: boolean) => {
-  open.value = isOpen
-}
+const main = useConfigStore()
+
+provide('state', {
+  store: main.state,
+  isStore: masterItemJson.isStore
+})
+
 </script>
 
 <template>
   <component
     :is="masterItemJson.type"
     :contents="masterItemJson.contents"
-    :open="open"
-    @onOffDialog="onOffDialog"
   />
 </template>

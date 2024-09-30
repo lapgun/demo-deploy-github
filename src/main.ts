@@ -17,23 +17,22 @@ import DoubleInput from './components/Common/DoubleInput.vue'
 import SearchInput from './components/Common/SearchInput.vue'
 import SingleInput from './components/Common/SingleInput.vue'
 import SingleButton from './components/Common/SingleButton.vue'
+import SingleCheckbox from './components/Common/SingleCheckbox.vue'
 import ErrorMessage from './components/Common/ErrorMessage.vue'
 import Title from './components/Common/Title.vue'
-import ClassifyCheckbox from './components/Common/ClassifyCheckbox.vue'
-import SingleInputCheckbox from './components/Common/SingleInputCheckbox.vue'
+import GroupCheckbox from './components/Common/GroupCheckbox.vue'
 import Label from './components/ui/label/Label.vue'
 import ClassifyRadio from './components/Common/ClassifyRadio.vue'
 import ChooseFile from './components/Common/ChooseFile.vue'
 import Table from './components/Common/Table.vue'
 import Pagination from './components/Common/Pagination.vue'
 import Selection from './components/Common/Selection.vue'
-import List from './components/Common/list/index.vue'
-import Block from './components/Common/list/Block.vue'
-import BlockTable from './components/Common/list/BlockTable.vue'
-import BlockTableContent from './components/Common/list/BlockTableContent.vue'
-import BlockSearchContent from './components/Common/list/BlockSearchContent.vue'
-import GroupButton from './components/Common/list/GroupButton.vue'
+import List from './components/Common/List.vue'
+import Block from './components/Common/Block.vue'
+import FormSubmit from './components/Common/FormSubmit.vue'
 import Dialog from './components/Common/Dialog.vue'
+import LabelForm from './components/Common/LabelForm.vue'
+import Footer from './components/Common/Footer.vue'
 
 const app = createApp(App)
 
@@ -57,9 +56,9 @@ app
   .component('SearchInput', SearchInput)
   .component('SingleInput', SingleInput)
   .component('SingleButton', SingleButton)
+  .component('SingleCheckbox', SingleCheckbox)
   .component('Title', Title)
-  .component('ClassifyCheckbox', ClassifyCheckbox)
-  .component('SingleInputCheckbox', SingleInputCheckbox)
+  .component('GroupCheckbox', GroupCheckbox)
   .component('Label', Label)
   .component('ClassifyRadio', ClassifyRadio)
   .component('ChooseFile', ChooseFile)
@@ -68,11 +67,10 @@ app
   .component('Selection', Selection)
   .component('List', List)
   .component('Block', Block)
-  .component('BlockTable', BlockTable)
-  .component('BlockTableContent', BlockTableContent)
-  .component('BlockSearchContent', BlockSearchContent)
-  .component('GroupButton', GroupButton)
   .component('Dialog', Dialog)
   .component('ErrorMessage', ErrorMessage)
+  .component('FormSubmit', FormSubmit)
+  .component('LabelForm', LabelForm)
+  .component('Footer', Footer)
 
 app.mount('#app')

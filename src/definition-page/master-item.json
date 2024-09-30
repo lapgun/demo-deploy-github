@@ -1,5 +1,6 @@
 {
   "type": "List",
+  "isStore": true,
   "contents": [
     {
       "type": "Block",
@@ -9,110 +10,149 @@
           "text": "検索条件入力"
         },
         {
-          "type": "BlockSearchContent",
-          "contents": {
-            "left": [
-              {
-                "type": "DatePicker",
-                "text": "適用日"
-              },
-              {
-                "type": "SearchInput",
-                "text": "データ種別",
-                "className": "w-[150px]",
-                "keyName": "abc",
-                "subText": "固定費"
-              },
-              {
-                "type": "DoubleInput",
-                "text": "項目コード",
-                "keyName": "abc",
-                "className": "w-[100px]"
-              },
-              {
-                "type": "SingleInputCheckbox",
-                "text": "項目名",
-                "options": [
-                  {
-                    "title": "前方一致",
-                    "value": "1"
-                  },
-                  {
-                    "title": "後方一致",
-                    "value": "2"
-                  }
-                ],
-                "className": "w-[250px]"
-              }
-            ],
-            "right": [
-              {
-                "type": "ClassifyCheckbox",
-                "text": "承認区分",
-                "options": [
-                  {
-                    "title": "承認",
-                    "value": "1"
-                  },
-                  {
-                    "title": "未承認",
-                    "value": "2"
-                  }
-                ]
-              },
-              {
-                "type": "ClassifyCheckbox",
-                "text": "削除区分",
-                "options": [
-                  {
-                    "title": "削除",
-                    "value": "1"
-                  }
-                ]
-              },
-              {
-                "type": "ChooseFile",
-                "text": "ファイル選択",
-                "textBtnChoose": "ファイル選択",
-                "textBtnLoad": "ファイル取込"
-              }
-            ]
-          }
+          "type": "Block",
+          "class": "content grid grid-flow-row-dense grid-cols-12",
+          "contents": [
+            {
+              "type": "Block",
+              "class": "content-left col-span-6",
+              "contents": [
+                {
+                  "type": "DatePicker",
+                  "text": "適用日",
+                  "keyName": "effectiveDate"
+                },
+                {
+                  "type": "SearchInput",
+                  "text": "データ種別",
+                  "className": "w-[150px]",
+                  "keyName": "dataType",
+                  "subText": "固定費"
+                },
+                {
+                  "type": "DoubleInput",
+                  "text": "項目コード",
+                  "keyName": "itemName",
+                  "className": "w-[100px]"
+                },
+                {
+                  "type": "Block",
+                  "class": "flex",
+                  "contents": [
+                    {
+                      "type": "LabelForm",
+                      "text": "項目名"
+                    },
+                    {
+                      "type": "Block",
+                      "class": "text-lg font-medium rotate-[0.03deg] flex",
+                      "contents": [
+                        {
+                          "type": "SingleInput",
+                          "keyName": "itemCode",
+                          "className": "w-[250px]",
+                          "hideLabelForm": true
+                        },
+                        {
+                          "type": "ClassifyRadio",
+                          "keyName": "matchType",
+                          "hideLabelForm": true,
+                          "options": [
+                            {
+                              "title": "前方一致",
+                              "value": 1
+                            },
+                            {
+                              "title": "後方一致",
+                              "value": 2
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Block",
+              "class": "content-right col-span-6",
+              "contents": [
+                {
+                  "type": "GroupCheckbox",
+                  "text": "承認区分",
+                  "keyName": "approvalCategory",
+                  "options": [
+                    {
+                      "title": "承認",
+                      "value": 1
+                    },
+                    {
+                      "title": "未承認",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "type": "SingleCheckbox",
+                  "text": "削除区分",
+                  "keyName": "deletionCategory",
+                  "subText": "削除"
+                },
+                {
+                  "type": "ChooseFile",
+                  "text": "ファイル選択",
+                  "textBtnChoose": "ファイル選択",
+                  "textBtnLoad": "ファイル取込"
+                }
+              ]
+            }
+          ]
         },
         {
-          "type": "GroupButton",
-          "contents": {
-            "left": [
-              {
-                "type": "Button",
-                "text": "クリア",
-                "className": "bg-white text-sky-700 hover:bg-wite border border-sky-700"
-              }
-            ],
-            "right": [
-              {
-                "type": "Button",
-                "text": "検索",
-                "className": "bg-white text-sky-700 hover:bg-wite border border-sky-700 mr-2"
-              },
-              {
-                "type": "Button",
-                "text": "新規登録"
-              }
-            ]
-          }
+          "type": "Block",
+          "class": "group-btn py-5 grid grid-flow-row-dense grid-cols-12",
+          "contents": [
+            {
+              "type": "Block",
+              "class": "group-btn-left col-span-6",
+              "contents": [
+                {
+                  "type": "SingleButton",
+                  "text": "クリア",
+                  "outLine": true
+                }
+              ]
+            },
+            {
+              "type": "Block",
+              "class": "group-btn-right col-span-6 text-end",
+              "contents": [
+                {
+                  "type": "SingleButton",
+                  "text": "検索",
+                  "outLine": true,
+                  "class": "mr-2"
+                },
+                {
+                  "type": "SingleButton",
+                  "text": "新規登録"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "type": "BlockTable",
+      "type": "Block",
       "contents": [
         {
           "type": "Title",
           "text": "検索結果"
         },
         {
-          "type": "BlockTableContent"
+          "type": "Table"
         }
       ]
     }

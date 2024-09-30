@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps({
-  errorMessage: {
+  message: {
     type: String,
     default: '',
   },
@@ -11,6 +11,6 @@ defineProps({
     class="font-medium text-destructive text-red-700 h-4"
     style="font-size: 10px; padding-top: 2px"
   >
-    {{ errorMessage }}
+    {{ message }}
   </div>
 </template>

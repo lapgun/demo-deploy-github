@@ -1,21 +1,35 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
-import { RadioGroup, RadioGroupItem } from '../../components/ui/radio-group'
-import type { optionsType } from '../../types/common'
+import { inject } from 'vue'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import type { optionsType } from '@/types/common'
+import { StateType } from '@/types/dataTypes'
+import { useInjectedModel } from '@/utils/form'
 
-defineProps({
-  options: {
-    type: Object as PropType<optionsType[]>,
-    default: () => {},
-  },
-})
+interface Props {
+  text: string
+  required?: boolean
+  options: optionsType[]
+  keyName: string
+  hideLabelForm: boolean
+}
+
+const props = defineProps<Props>()
+
+const injectStates = inject<StateType<any>>('state') || {}
+
+const isStore = injectStates['isStore'] ?? false
+
+const modelValue = useInjectedModel<any>(injectStates, props.keyName, isStore)
 </script>
 
 <template>
-  <RadioGroup default-value="1" class="flex">
-    <div class="flex items-center space-x-2 ml-4" v-for="(option, index) in options" :key="index">
-      <RadioGroupItem :id="option.title" :value="option.value" />
-      <Label :for="option.title">{{ option.title }}</Label>
-    </div>
-  </RadioGroup>
+  <div class="flex mb-4">
+    <LabelForm v-if="!hideLabelForm" :text="text" :required="required"/>
+    <RadioGroup class="flex" v-model="modelValue">
+      <div class="flex items-center space-x-2 ml-4" v-for="(option, index) in options" :key="index">
+        <RadioGroupItem :id="'radio' + option.title" :value="option.value" />
+        <Label :for="'radio' + option.title">{{ option.title }}</Label>
+      </div>
+    </RadioGroup>
+  </div>
 </template>

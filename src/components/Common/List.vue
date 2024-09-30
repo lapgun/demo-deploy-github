@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { ListType } from '../../../types/common'
+import type { ListType } from '../../types/common'
 
 defineProps({
   contents: {

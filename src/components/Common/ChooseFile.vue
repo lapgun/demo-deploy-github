@@ -48,10 +48,7 @@ const onFileChanged = ($event: Event) => {
 </script>
 <template>
   <div class="flex">
-    <div class="mr-4 content-center w-[150px] bg-indigo-100 pl-1">
-      {{ text }}
-      <span class="text-red-500" v-if="required">*</span>
-    </div>
+    <LabelForm :text="text" :required="required"/>
     <div class="text-sm rotate-[0.03deg]">
       <div class="grid grid-flow-row-dense grid-cols-12 space-x-2">
         <div class="col-span-9 flex">

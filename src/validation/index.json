@@ -1,0 +1,37 @@
+{
+  "min": {
+    "message": "{value}文字以上で入力してください"
+  },
+
+  "max": {
+    "message": "{value}文字以内で入力してください"
+  },
+
+  "required": {
+    "message": "必須項目です"
+  },
+
+  "email": {
+    "message": "メールアドレスが正しい形式ではありません"
+  },
+
+  "hwAlphanumeric": {
+    "message": "全角文字で入力してください",
+    "regex": "^[^\\x01-\\x7E\\xA1-\\xDF]+$"
+  },
+
+  "hwNumbers": {
+    "message": "全角文字で入力してください",
+    "regex": "^[^\\x01-\\x7E\\xA1-\\xDF]+$"
+  },
+
+  "hwKatakana": {
+    "message": "全角文字で入力してください",
+    "regex": "^[^\\x01-\\x7E\\xA1-\\xDF]+$"
+  },
+
+  "fwCharacters": {
+    "message": "全角文字で入力してください",
+    "regex": "^[^\\x01-\\x7E\\xA1-\\xDF]+$"
+  }
+}
