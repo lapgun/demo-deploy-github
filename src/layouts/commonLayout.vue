@@ -24,6 +24,6 @@ onMounted(() => {
         </div>
       </section>
     </div>
-    <loading v-model:active="loading"></loading>
+    <!-- <loading v-model:active="loading"></loading> -->
   </div>
 </template>

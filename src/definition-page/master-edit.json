@@ -27,7 +27,9 @@
               "className": "w-[150px]",
               "subText": "固定費",
               "required": true,
-              "validationRules": ["min/2"],
+              "validationRules": [
+                "min/2"
+              ],
               "keyName": "dataType"
             },
             {
@@ -39,7 +41,9 @@
                   "text": "項目コード",
                   "className": "w-[150px]",
                   "required": true,
-                  "validationRules": ["min/2"],
+                  "validationRules": [
+                    "min/2"
+                  ],
                   "keyName": "itemCode"
                 },
                 {
@@ -66,7 +70,9 @@
               "class": "mb-1",
               "className": "w-[600px]",
               "required": true,
-              "validationRules": ["min/2"],
+              "validationRules": [
+                "min/2"
+              ],
               "keyName": "itemNameKana"
             },
             {
@@ -75,7 +81,9 @@
               "class": "mb-1",
               "className": "w-[600px]",
               "required": true,
-              "validationRules": ["min/2"],
+              "validationRules": [
+                "min/2"
+              ],
               "keyName": "itemNameKanji"
             }
           ]
@@ -101,7 +109,9 @@
               "class": "mb-1",
               "className": "w-[150px]",
               "required": true,
-              "validationRules": ["min/2"],
+              "validationRules": [
+                "min/2"
+              ],
               "keyName": "standardUnitPrice"
             },
             {

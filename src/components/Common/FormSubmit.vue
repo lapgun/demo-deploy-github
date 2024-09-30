@@ -21,6 +21,6 @@ const handleSubmit = (e: Event) => {
 
 <template>
   <form @submit="handleSubmit">
-    <component v-for="(item, index) in contents" :is="item.type" :key="index" v-bind="item" />
+    <slot></slot>
   </form>
 </template>

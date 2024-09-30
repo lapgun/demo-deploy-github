@@ -47,28 +47,25 @@ const onFileChanged = ($event: Event) => {
 }
 </script>
 <template>
-  <div class="flex">
-    <LabelForm :text="text" :required="required"/>
-    <div class="text-sm rotate-[0.03deg]">
-      <div class="grid grid-flow-row-dense grid-cols-12 space-x-2">
-        <div class="col-span-9 flex">
-          <Input :class="cn('hidden', className)" type="file" id="file" @change="onFileChanged" />
-          <Button
-            @click="onChooseFile"
-            class="bg-white text-sky-700 hover:bg-wite border border-sky-700"
-          >
-            {{ textBtnChoose }}
-          </Button>
-          <div class="text-sm content-center ml-3">{{ file?.name }}</div>
-        </div>
-        <div class="col-span-3">
-          <Button
-            @click="onLoadFile"
-            class="bg-white text-sky-700 hover:bg-wite border border-sky-700"
-          >
-            {{ textBtnLoad }}
-          </Button>
-        </div>
+  <div class="text-sm rotate-[0.03deg]">
+    <div class="grid grid-flow-row-dense grid-cols-12 space-x-2">
+      <div class="col-span-9 flex">
+        <Input :class="cn('hidden', className)" type="file" id="file" @change="onFileChanged" />
+        <Button
+          @click="onChooseFile"
+          class="bg-white text-sky-700 hover:bg-wite border border-sky-700"
+        >
+          {{ textBtnChoose }}
+        </Button>
+        <div class="text-sm content-center ml-3">{{ file?.name }}</div>
+      </div>
+      <div class="col-span-3">
+        <Button
+          @click="onLoadFile"
+          class="bg-white text-sky-700 hover:bg-wite border border-sky-700"
+        >
+          {{ textBtnLoad }}
+        </Button>
       </div>
     </div>
   </div>

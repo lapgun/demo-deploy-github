@@ -40,7 +40,7 @@
                   "class": "flex",
                   "contents": [
                     {
-                      "type": "LabelForm",
+                      "type": "FormLabel",
                       "text": "項目名"
                     },
                     {
@@ -51,12 +51,12 @@
                           "type": "SingleInput",
                           "keyName": "itemCode",
                           "className": "w-[250px]",
-                          "hideLabelForm": true
+                          "hideFormLabel": true
                         },
                         {
-                          "type": "ClassifyRadio",
+                          "type": "FormRadio",
                           "keyName": "matchType",
-                          "hideLabelForm": true,
+                          "hideFormLabel": true,
                           "options": [
                             {
                               "title": "前方一致",
@@ -79,7 +79,7 @@
               "class": "content-right col-span-6",
               "contents": [
                 {
-                  "type": "GroupCheckbox",
+                  "type": "FormCheckboxGroup",
                   "text": "承認区分",
                   "keyName": "approvalCategory",
                   "options": [
