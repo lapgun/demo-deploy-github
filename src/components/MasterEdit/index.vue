@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import useMasterEditStore from '@/stores/masterEdit'
+import { ref } from 'vue'
+import '@/assets/index.css'
 
 const store = useMasterEditStore()
 const {
@@ -15,6 +17,7 @@ const {
   approvalCategory,
   deletionCategory,
 } = storeToRefs(store)
+const selectedDate = ref<Date | null>(null)
 </script>
 
 <template>
@@ -22,7 +25,8 @@ const {
     <div>
       <Title text="は必須" :required="true" />
       <FormLabel text="適用開始日" required="true" class="mb-1">
-        <DatePicker v-model="effectiveDate" />
+        <DatePicker1 v-model="effectiveDate" />
+        <DatePicker2 v-model="effectiveDate" />
       </FormLabel>
       <FormLabel text="固定費" required="true" class="mb-1">
         <SearchInput subText="固定費" v-model="dataType" />

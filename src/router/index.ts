@@ -3,12 +3,12 @@ import MasterItemPage from '../pages/MasterItem.page.vue'
 import MasterDetailPage from '../pages/MasterEdit.page.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
       name: 'master-item-page',
-      component: MasterItemPage,
+      component: MasterDetailPage,
     },
     {
       path: '/detail',
