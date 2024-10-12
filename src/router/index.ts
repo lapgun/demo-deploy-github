@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'master-item-page',
-      component: MasterDetailPage,
+      component: MasterItemPage,
     },
     {
       path: '/detail',
