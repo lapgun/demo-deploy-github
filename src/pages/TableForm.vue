@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import { configure } from 'vee-validate'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
 
 configure({
   bails: false,
@@ -9,33 +17,63 @@ configure({
   validateOnBlur: false,
 })
 
-type User = { name: string; email: string }
+type User = { name: string; email: string; password: string }
 
 const props = defineProps({
   list: {
     type: Array as () => User[],
     default: () => [],
   },
+  count: {
+    type: Number,
+    default: 1,
+  },
 })
 
-const emit = defineEmits(['onPush'])
-
-const onPush = () => {
-  emit('onPush')
-}
+const headers = [
+  {
+    label: 'データ種別',
+    className: '',
+  },
+  {
+    label: '項目コード',
+    className: '',
+  },
+  {
+    label: '項目名カナ',
+    className: '',
+  },
+  {
+    label: '項目名',
+    className: '',
+  },
+]
 </script>
 
 <template>
   <div>
     <!-- Form bắt đầu -->
-    <Button @click="onPush">12313</Button>
     <div class="border mx-10 my-10">
-      <div class="InputGroup">
-        {{ list.length }}
-        <div v-for="(item, index) in list" :key="index">
-          <FormInput v-model="item.name" type="text" />
-          <FormInput v-model="item.email" type="text" />
-        </div>
+      <div class="content-table h-[500px] overflow-auto relative">
+        <Table>
+          <TableHeader class="sticky top-0 z-40">
+            <TableRow class="hover:bg-indigo-100">
+              <TableHead :class="item.className" v-for="(item, index) in headers" :key="index">
+                {{ item.label }}
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody class="border border-black">
+            <TableRow v-for="(item, index) in list" :key="index">
+              <TableCell class="font-medium">
+                {{ index + count }}
+              </TableCell>
+              <TableCell><FormInput v-model="item.email" /></TableCell>
+              <TableCell><FormInput v-model="item.name" /></TableCell>
+              <TableCell><FormInput v-model="item.password" /></TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
       </div>
     </div>
   </div>

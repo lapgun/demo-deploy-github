@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { watch, ref } from 'vue'
 import { useForm } from 'vee-validate'
 import { z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
@@ -15,36 +15,18 @@ configure({
 })
 
 const schema = z.object({
-  name: z.string().min(1, 'Name is required').max(5, '5 Name required').optional(),
   users: z.array(
     z.object({
       name: z.string().min(1, 'Name is required').max(5, '5 Name required').optional(),
       email: z.string().min(1, 'Email is required').max(5, '5 Email required').optional(),
+      password: z.string().min(1, 'password is required').max(5, '5 password required').optional(),
     })
   ),
 })
-let count = 1
 
 const initialData = {
   name: '',
-  users: [
-    {
-      name: '',
-      email: '',
-    },
-    {
-      name: '',
-      email: '',
-    },
-    {
-      name: '',
-      email: '',
-    },
-    {
-      name: '',
-      email: '',
-    },
-  ],
+  users: [],
 }
 
 // Khởi tạo form với schema và giá trị ban đầu
@@ -55,7 +37,13 @@ const { handleSubmit, errors, values, ...ctx } = useForm({
 
 const stageInitialValue = (ctx as any)?.stageInitialValue
 
-const list = values
+const list = ref(
+  Array.from({ length: 1000 }, (_, index) => ({
+    name: ``,
+    email: ``,
+    password: `password${index + 1}`,
+  }))
+)
 
 watch(
   errors,
@@ -67,43 +55,37 @@ watch(
   }
 )
 
-watch(
-  values,
-  (value) => {
-    console.log('values', value)
-  },
-  {
-    deep: true,
-  }
-)
-
 const quang = () => {
-  stageInitialValue(
-    'users',
-    [
-      ...values.users,
-      {
-        name: '',
-        email: '',
-      },
-      {
-        name: '',
-        email: '',
-      },
-    ],
-    true
-  )
+  stageInitialValue('users', list.value)
+  onSubmit()
 }
 
 const onSubmit = handleSubmit((values, actions) => {
   console.log('Submitted values:', values)
 })
+
+const count = ref(0)
+
+const onNext = () => {
+  count.value = count.value + 100
+}
+
+const onBack = () => {
+  count.value = count.value - 100
+}
+
+const onReset = () => {
+  count.value = 0
+}
 </script>
 
 <template>
   <div>
-    <TableForm @onPush="quang" :list="list.users" />
-    <Button @click="onSubmit">OK</Button>
+    <Button @click="onNext" class="mx-2">Next</Button>
+    <Button @click="onBack" class="mx-2">Back</Button>
+    <Button @click="onReset" class="mx-2">Reset</Button>
+    <Button class="mx-2" @click="quang">OK</Button>
+    <TableForm class="mt-5" :list="list.slice(count, count + 100)" :count="count" />
   </div>
 </template>
 

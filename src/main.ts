@@ -18,7 +18,7 @@ import ErrorMessage from './components/Common/ErrorMessage.vue'
 import Title from './components/Common/Title.vue'
 import Label from './components/ui/label/Label.vue'
 import ChooseFile from './components/Common/ChooseFile.vue'
-import Table from './components/Common/Table.vue'
+import Table123 from './components/Common/Table.vue'
 import Pagination from './components/Common/Pagination.vue'
 import Selection from './components/Common/Selection.vue'
 import FormCheckbox from './components/Common/FormCheckbox.vue'
@@ -57,7 +57,7 @@ app
   .component('Title', Title)
   .component('Label', Label)
   .component('ChooseFile', ChooseFile)
-  .component('Table', Table)
+  .component('Table123', Table123)
   .component('Pagination', Pagination)
   .component('Selection', Selection)
   .component('Dialog', Dialog)

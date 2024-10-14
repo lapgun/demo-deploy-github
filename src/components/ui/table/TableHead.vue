@@ -8,10 +8,11 @@ const props = defineProps<{
 </script>
 
 <template>
+  <!-- border border-gray -->
   <th
     :class="
       cn(
-        'h-10 px-2 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5 border border-gray hover:bg-indigo-100',
+        'h-10 px-2 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-0.5  hover:bg-indigo-100',
         props.class
       )
     "
