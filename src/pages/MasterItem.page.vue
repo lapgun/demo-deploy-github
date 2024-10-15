@@ -1,92 +1,100 @@
 <script setup lang="ts">
-import { watch, ref } from 'vue'
-import { useForm } from 'vee-validate'
-import { z } from 'zod'
-import { toTypedSchema } from '@vee-validate/zod'
-import TableForm from './TableForm.vue'
+import { ref, reactive, computed } from 'vue'
+import TableUnitPrice from './TableUnitPrice.vue'
 
-import { configure } from 'vee-validate'
-
-configure({
-  validateOnChange: false,
-  validateOnInput: false,
-  validateOnModelUpdate: false,
-  validateOnBlur: false,
-})
-
-const schema = z.object({
-  users: z.array(
-    z.object({
-      name: z.string().min(1, 'Name is required').max(5, '5 Name required').optional(),
-      email: z.string().min(1, 'Email is required').max(5, '5 Email required').optional(),
-      password: z.string().min(1, 'password is required').max(5, '5 password required').optional(),
-    })
-  ),
-})
-
-const initialData = {
-  name: '',
-  users: [],
+interface PaginationData {
+  page: number
+  pageSize: number
+  totalPage: number
+  totalRecord: number
+  startIndex: number
+  endIndex: number
 }
 
-// Khởi tạo form với schema và giá trị ban đầu
-const { handleSubmit, errors, values, ...ctx } = useForm({
-  validationSchema: toTypedSchema(schema),
-  initialValues: initialData,
+interface RowData {
+  isDelete: boolean
+  itemCode: string
+  itemName: string
+  price: string
+}
+
+const pagination = reactive(<PaginationData>{
+  page: 1,
+  totalPage: 2,
+  pageSize: 50,
+  totalRecord: 80,
+  startIndex: 0,
+  endIndex: 0,
 })
 
-const stageInitialValue = (ctx as any)?.stageInitialValue
-
-const list = ref(
-  Array.from({ length: 1000 }, (_, index) => ({
-    name: ``,
-    email: ``,
-    password: `password${index + 1}`,
+const listSearch = ref<RowData[]>(
+  Array.from({ length: 80 }, (_, index) => ({
+    isDelete: false,
+    itemCode: `code${index}`,
+    itemName: `name${index}`,
+    price: `${index}`,
   }))
 )
 
-watch(
-  errors,
-  (value) => {
-    console.log('errors', value)
-  },
-  {
-    deep: true,
-  }
+const listAdd = ref<RowData[]>(
+  Array.from({ length: 250 }, (_, index) => ({
+    isDelete: false,
+    itemCode: `Add code${index}`,
+    itemName: `Add name${index}`,
+    price: `${index}`,
+  }))
 )
 
-const quang = () => {
-  stageInitialValue('users', list.value)
-  onSubmit()
-}
+const getRowData = computed<RowData[]>(() => {
+  const { page, pageSize, totalPage, totalRecord } = pagination
+  const start = (page - 1) * pageSize
+  const end = page * pageSize
 
-const onSubmit = handleSubmit((values, actions) => {
-  console.log('Submitted values:', values)
+  if (page < totalPage) return listSearch.value.slice(start, end)
+
+  if (pagination.page === pagination.totalPage) {
+    const remainingSearch = listSearch.value.slice(start, totalRecord)
+    const remainingAdd = listAdd.value.slice(0, pageSize - remainingSearch.length)
+
+    return [...remainingSearch, ...remainingAdd]
+  }
+
+  const remainingSearch = totalPage * pageSize - totalRecord
+  const startAdd = start - listSearch.value.length + remainingSearch
+
+  return listAdd.value.slice(startAdd, startAdd + pageSize)
 })
 
-const count = ref(0)
+const getPaginationData = computed<PaginationData>(() => {
+  const { page, totalRecord, pageSize } = pagination
+  const totalRecordAll = totalRecord + listAdd.value.length
+  return {
+    page: pagination.page,
+    totalPage: Math.ceil(totalRecordAll / pageSize),
+    pageSize: pageSize,
+    totalRecord: totalRecordAll,
+    startIndex: (page - 1) * pagination.pageSize + 1,
+    endIndex: Math.min(page * pageSize, totalRecordAll),
+  }
+})
 
-const onNext = () => {
-  count.value = count.value + 100
-}
-
-const onBack = () => {
-  count.value = count.value - 100
-}
-
-const onReset = () => {
-  count.value = 0
+const onChangePage = (page: number) => {
+  if (page > 0) {
+    pagination.page = page
+  }
 }
 </script>
 
 <template>
   <div>
-    <Button @click="onNext" class="mx-2">Next</Button>
-    <Button @click="onBack" class="mx-2">Back</Button>
-    <Button @click="onReset" class="mx-2">Reset</Button>
-    <Button class="mx-2" @click="quang">OK</Button>
-    <TableForm class="mt-5" :list="list.slice(count, count + 100)" :count="count" />
+    <div class="my-5">
+      <Title text="検索結果" />
+      <TableUnitPrice
+        :pagination="getPaginationData"
+        :rowsData="getRowData"
+        @onChangePage="onChangePage"
+      />
+    </div>
+    <Footer />
   </div>
 </template>
-
-<style></style>

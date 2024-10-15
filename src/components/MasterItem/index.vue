@@ -32,7 +32,7 @@ const optionApprovalCategory = ref([
     <div class="content grid grid-flow-row-dense grid-cols-12">
       <div class="content-left col-span-6">
         <FormLabel text="適用日">
-          <DatePicker />
+          <!-- <DatePicker /> -->
         </FormLabel>
         <FormLabel text="データ種別">
           <SearchInput subText="固定費" />
